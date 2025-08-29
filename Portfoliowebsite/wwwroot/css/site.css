@@ -1,0 +1,53 @@
+body {
+    font-family: system-ui, sans-serif;
+    background: #ffffff;
+    color: #9a9a9a;
+}
+
+.container {
+    max-width: 760px;
+    margin: 2rem auto;
+    padding: 1rem;
+}
+
+*:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+label {
+    display: block;
+    margin: .5rem 0;
+    color: #b3b3b3;
+}
+
+input, textarea {
+    width: 100%;
+    padding: .75rem;
+    margin-bottom: .5rem;
+    border: 1px solid #e5e5e5;
+    border-radius: 4px;
+}
+
+.send-button {
+    display: inline-block;
+    padding: .75rem 1rem;
+    background: #dcdcdc;
+    color: #f0f0f0;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.hp {
+    display: none;
+}
+
+.error {
+    font-size: .9rem;
+    color: #a94442;
+}
+
+#liveStatus {
+    position: absolute;
+    left: -9999px;
+}
