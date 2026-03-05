@@ -12,9 +12,35 @@ namespace Portfoliowebsite.Controllers
         public IActionResult Index() => View();
 
         [HttpPost]
-        public async Task<IActionResult> Index(string Name, string Email, string Subject, string Message)
+        public async Task<IActionResult> Index(string Name, string Email, string Subject, string Message, string website)
         {
+            // honeypot check
+            if (!string.IsNullOrEmpty(website))
+            {
+                return View();
+            }
+            if(string.IsNullOrWhiteSpace(Name) || string.IsNullOrWhiteSpace(Email) || string.IsNullOrWhiteSpace(Subject) || string.IsNullOrWhiteSpace(Message))
+            {
+                Console.WriteLine("Required fields are missing");
+                return View();
+            }
+
+            //maxlength check to prevent abuse
+            if(Name.Length > 50 || Email.Length > 100 || Subject.Length > 50 || Message.Length > 1000)
+            {
+                Console.WriteLine("One or more fields exceed the maximum allowed length");
+                return View();
+
+            }
+
+            //a simple check for email format
+            if(!Email.Contains("@") || !Email.Contains("."))
+            {
+                Console.WriteLine("Invalid email format");
+                return View();
+            }
             await _email.SendAsync(Name, Email, Subject, Message);
+            
 
             TempData["ThanksName"] = Name;
             TempData["ThanksEmail"] = Email;

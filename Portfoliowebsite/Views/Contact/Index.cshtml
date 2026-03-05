@@ -12,24 +12,24 @@
     </div>
     <div>
         <input id="Name" name="Name" placeholder="Naam" tabindex="-1" />
-        <div id="nameErr" class="error"></div>
+        <div id="nameErr" class="error" role="alert"></div>
     </div>
     <div>
-        <label for="EmailX">E-mail</label>
+        <label for="Email">E-mail</label>
         <input id="Email" name="Email" placeholder="naam@domein.nl" />
-        <div id="emailErr" class="error"></div>
+        <div id="emailErr" class="error" role="alert"></div>
     </div>
     <div>
         <label for="Subject">Onderwerp</label>
         <input id="Subject" name="Subject" placeholder="Onderwerp" />
+        <div id="subjErr" class="error" role="alert"></div>
     </div>
     <div>
         <label for="Message" aria-hidden="true">Bericht</label> 
-        <textarea id="Message" name="Message" rows="5" placeholder="Je bericht"></textarea>
-        <div id="msgErr" class="error"></div>
+        <textarea id="Message" name="Message" rows="5" maxlength="1000" placeholder="Je bericht"></textarea>
+        <div id="msgErr" class="error" role="alert"></div>
     </div>
-    <div id="liveStatus"></div>
-    <div class="send-button" role="button" onclick="document.getElementById('contactForm').submit()">
+    <button class="send-button" role="button" type="submit">
         Versturen
-    </div>
+    </button>
 </form>
