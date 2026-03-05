@@ -11,22 +11,22 @@
         <input type="text" id="website" name="website" value="" />
     </div>
     <div>
-        <input id="Name" name="Name" placeholder="Naam" tabindex="-1" />
+        <input id="Name" name="Name" placeholder="Naam" tabindex="1" value="@ViewData["Name"]" />
         <div id="nameErr" class="error" role="alert"></div>
     </div>
     <div>
         <label for="Email">E-mail</label>
-        <input id="Email" name="Email" placeholder="naam@domein.nl" />
+        <input id="Email" name="Email" placeholder="naam@domein.nl" tabindex="2" value="@ViewData["Email"]" />
         <div id="emailErr" class="error" role="alert"></div>
     </div>
     <div>
         <label for="Subject">Onderwerp</label>
-        <input id="Subject" name="Subject" placeholder="Onderwerp" />
+        <input id="Subject" name="Subject" placeholder="Onderwerp" tabindex="3" value="@ViewData["Subject"]" />
         <div id="subjErr" class="error" role="alert"></div>
     </div>
     <div>
         <label for="Message" aria-hidden="true">Bericht</label> 
-        <textarea id="Message" name="Message" rows="5" maxlength="1000" placeholder="Je bericht"></textarea>
+        <textarea id="Message" name="Message" rows="5" tabindex="4" maxlength="1000" placeholder="Je bericht">@ViewData["Message"]</textarea>
         <div id="msgErr" class="error" role="alert"></div>
     </div>
     <button class="send-button" role="button" type="submit">

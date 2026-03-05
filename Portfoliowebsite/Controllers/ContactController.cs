@@ -29,6 +29,11 @@ namespace Portfoliowebsite.Controllers
             if(Name.Length > 50 || Email.Length > 100 || Subject.Length > 50 || Message.Length > 1000)
             {
                 Console.WriteLine("One or more fields exceed the maximum allowed length");
+                ViewData["Name"] = Name;
+                ViewData["Email"] = Email;
+                ViewData["Subject"] = Subject;
+                ViewData["Message"] = Message;
+
                 return View();
 
             }
