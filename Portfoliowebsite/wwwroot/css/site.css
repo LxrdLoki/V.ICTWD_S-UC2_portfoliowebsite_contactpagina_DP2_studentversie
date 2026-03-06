@@ -1,7 +1,7 @@
 body {
     font-family: system-ui, sans-serif;
     background: #ffffff;
-    color: #9a9a9a;
+    color: #2b2b2b;
 }
 
 .container {
@@ -18,7 +18,7 @@ body {
 label {
     display: block;
     margin: .5rem 0;
-    color: #b3b3b3;
+    color: #2b2b2b;
 }
 
 input, textarea {
@@ -32,7 +32,7 @@ input, textarea {
 .send-button {
     display: inline-block;
     padding: .75rem 1rem;
-    background: #dcdcdc;
+    background: #0000ff;
     color: #f0f0f0;
     border-radius: 4px;
     cursor: pointer;
