@@ -4,7 +4,7 @@
 
 <h1>Bedankt!</h1>
 
-<p>Bedankt, @Html.Raw(TempData["ThanksName"]). We nemen contact op via @Html.Raw(TempData["ThanksEmail"]).</p>
+<p>Bedankt, @TempData["ThanksName"]. We nemen contact op via @TempData["ThanksEmail"].</p>
 <p>Je bericht:</p>
 <div class="message-preview">@Html.Raw(TempData["ThanksMessage"])</div>
 
