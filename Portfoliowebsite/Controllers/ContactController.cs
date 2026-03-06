@@ -26,22 +26,26 @@ namespace Portfoliowebsite.Controllers
             }
 
             //maxlength check to prevent abuse
-            if(Name.Length > 50 || Email.Length > 100 || Subject.Length > 50 || Message.Length > 1000)
+            if(Name.Length > 100 || Email.Length > 100 || Subject.Length > 100 || Message.Length > 1000)
             {
                 Console.WriteLine("One or more fields exceed the maximum allowed length");
-                
-                ViewBag.Name = Name;
-                ViewBag.Email = Email;
-                ViewBag.Subject = Subject;
-                ViewBag.Message = Message;
+                ViewData["Name"] = Name;
+                ViewData["Email"] = Email;
+                ViewData["Subject"] = Subject;
+                ViewData["Message"] = Message;
 
                 return View();
+
             }
 
             //a simple check for email format
             if(!Email.Contains("@") || !Email.Contains("."))
             {
-                Console.WriteLine("Invalid email format");
+                ViewData["Name"] = Name;
+                ViewData["Email"] = Email;
+                ViewData["Subject"] = Subject;
+                ViewData["Message"] = Message;
+
                 return View();
             }
             await _email.SendAsync(Name, Email, Subject, Message);
