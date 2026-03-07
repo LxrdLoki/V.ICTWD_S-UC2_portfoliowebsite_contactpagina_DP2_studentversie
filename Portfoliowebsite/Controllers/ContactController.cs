@@ -25,7 +25,7 @@ namespace Portfoliowebsite.Controllers
                 return View(form);
             }
 
-            var captcha = Request.Form[recaptchaResponse];
+            var captcha = Request.Form["g-recaptcha-response"];
             if (!await _verifyRecaptcha.VerifyRecaptcha(captcha!))
             {
                 ModelState.AddModelError("", "reCAPTCHA verificatie mislukt");
