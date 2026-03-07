@@ -21,14 +21,12 @@ namespace Portfoliowebsite.Controllers
             }
             if(string.IsNullOrWhiteSpace(Name) || string.IsNullOrWhiteSpace(Email) || string.IsNullOrWhiteSpace(Subject) || string.IsNullOrWhiteSpace(Message))
             {
-                Console.WriteLine("Required fields are missing");
                 return View();
             }
 
             //maxlength check to prevent abuse
             if(Name.Length > 100 || Email.Length > 100 || Subject.Length > 100 || Message.Length > 1000)
             {
-                Console.WriteLine("One or more fields exceed the maximum allowed length");
                 ViewData["Name"] = Name;
                 ViewData["Email"] = Email;
                 ViewData["Subject"] = Subject;

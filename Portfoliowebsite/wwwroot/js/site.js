@@ -1,6 +1,6 @@
 ﻿
 function naiveEmailCheck(email) {
-    return /@/.test(email);
+    return /@.*\./.test(email);
 }
 
 
@@ -26,7 +26,7 @@ function setupValidation() {
     const validateEmail = (value) => {
         if (!value) return 'E-mail is verplicht';
         if (value.length > 100) return 'Maximaal 100 karakters toegestaan';
-        if (!naiveEmailCheck(value)) return 'Ongeldig e-mailadres (naam@domein.nl)';
+        if (!naiveEmailCheck(value)) return 'Ongeldige email (naam@domein.nl)';
         return '';
     }
 
@@ -41,10 +41,6 @@ function setupValidation() {
         if (value.length > 1000) return 'Maximaal 1000 karakters toegestaan';
         return '';
     }
-
-    // const echo = (id, value) => {
-    //     document.getElementById(id).innerHTML = `\n <span>Probleem met: ${value}</span>\n `;
-    // };
 
     [email, name, msg, subject].forEach(el => {
         if (el === email) {
