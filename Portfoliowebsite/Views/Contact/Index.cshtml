@@ -4,6 +4,7 @@
 
 <h1>Contact</h1>
 
+@model ContactFormModel
 <form id="contactForm" asp-action="Index" method="post" novalidate>
     @Html.AntiForgeryToken()
     <div class="hp">
@@ -11,22 +12,22 @@
         <input type="text" id="website" name="website" value="" />
     </div>
     <div>
-        <input type="text" id="Name" name="Name" placeholder="Naam" tabindex="1" required/>
+        <input asp-for="Name" type="text" id="Name" name="Name" placeholder="Naam" tabindex="1" required/>
         <div id="nameErr" class="error" role="alert">@Html.ValidationMessage("Name")</div>
     </div>
     <div>
         <label for="Email">E-mail</label>
-        <input id="Email" name="Email" placeholder="naam@domein.nl" tabindex="2" required/>
+        <input asp-for="Email" type="email" id="Email" name="Email" placeholder="naam@domein.nl" tabindex="2" required/>
         <div id="emailErr" class="error" role="alert">@Html.ValidationMessage("Email")</div>
     </div>
     <div>
         <label for="Subject">Onderwerp</label>
-        <input id="Subject" name="Subject" placeholder="Onderwerp" tabindex="3" required/>
+        <input asp-for="Subject" id="Subject" name="Subject" placeholder="Onderwerp" tabindex="3" required/>
         <div id="subjErr" class="error" role="alert">@Html.ValidationMessage("Subject")</div>
     </div>
     <div>
         <label for="Message" aria-hidden="true">Bericht</label> 
-        <textarea id="Message" name="Message" rows="5" tabindex="4" maxlength="1000" placeholder="Je bericht" required></textarea>
+        <textarea asp-for="Message" id="Message" name="Message" rows="5" tabindex="4" maxlength="1000" placeholder="Je bericht" required></textarea>
         <div id="msgErr" class="error" role="alert">@Html.ValidationMessage("Message")</div>
     </div>
     <button class="send-button" role="button" type="submit">
