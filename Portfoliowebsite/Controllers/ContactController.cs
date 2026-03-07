@@ -8,18 +8,30 @@ namespace Portfoliowebsite.Controllers
     {
 
         private readonly IEmailSender _email;
-        public ContactController(IEmailSender email) => _email = email;
-
+        private readonly VerifyRecaptchaService _verifyRecaptcha;
+        public ContactController(IEmailSender email, VerifyRecaptchaService verifyRecaptcha){
+            _email = email;
+            _verifyRecaptcha = verifyRecaptcha;
+        }
+        
         public IActionResult Index() => View();
 
         [HttpPost]
-        public async Task<IActionResult> Index(ContactFormModel form, string website)
+        public async Task<IActionResult> Index(ContactFormModel form, string website, string recaptchaResponse)
         {
             // honeypot check 
             if (!string.IsNullOrEmpty(website))
             {
                 return View(form);
             }
+
+            var captcha = Request.Form[recaptchaResponse];
+            if (!await _verifyRecaptcha.VerifyRecaptcha(captcha!))
+            {
+                ModelState.AddModelError("", "reCAPTCHA verificatie mislukt");
+                return View();
+            }
+
             // validation checks for empty fields, maxlength and a simple email format check
             // a lot of if statments but it works >:)
             if(string.IsNullOrWhiteSpace(form.Name))

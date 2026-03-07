@@ -1,6 +1,7 @@
 ﻿@{
     ViewData["Title"] = "Contact";
 }
+<script src="https://www.google.com/recaptcha/api.js"></script>
 
 <h1>Contact</h1>
 
@@ -30,6 +31,7 @@
         <textarea asp-for="Message" id="Message" name="Message" rows="5" tabindex="4" maxlength="1000" placeholder="Je bericht" required></textarea>
         <div id="msgErr" class="error" role="alert">@Html.ValidationMessage("Message")</div>
     </div>
+    <div class="g-recaptcha" data-sitekey="6LfUFYMsAAAAAE4ESK0Pp-OysgyvvLTh_kyDa059" data-callback='onSubmit' data-action='submit'></div>
     <button class="send-button" role="button" type="submit">
         Versturen
     </button>

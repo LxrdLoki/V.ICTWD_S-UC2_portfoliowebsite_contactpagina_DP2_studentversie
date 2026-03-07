@@ -9,6 +9,7 @@ builder.Services.AddCors(p => p.AddDefaultPolicy(policy =>
     policy.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod()));
 
 builder.Services.AddSingleton<IEmailSender, SmtpEmailSender>();
+builder.Services.AddSingleton<VerifyRecaptchaService, VerifyRecaptchaService>();
 
 var app = builder.Build();
 
